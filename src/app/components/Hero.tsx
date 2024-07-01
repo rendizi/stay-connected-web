@@ -33,7 +33,7 @@ export default function Hero({ setUsername }: HeroProps) {
     };
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero bg-base-200 h-3/4">
             <div className="hero-content text-center">
                 <div className="max-w-md mx-auto">
                     <h1 className="text-5xl font-bold">Summarize Instagram stories</h1>
