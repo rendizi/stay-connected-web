@@ -38,7 +38,7 @@ export default function Hero({ setUsername }: HeroProps) {
                 <div className="max-w-md mx-auto">
                     <h1 className="text-5xl font-bold">Summarize Instagram stories</h1>
                     <p className="py-6 px-10 text-xl">
-                        Get the latest info in minutes, not <span style={{ display: 'inline-block', transform: 'rotate(-3deg)' }} className="bg-secondary px-1 py-1">hours</span>
+                        Get the latest info in minutes, not <span style={{ display: 'inline-block', transform: 'rotate(-3deg)' }} className="bg-accent px-1 py-1 text-black">hours</span>
                     </p>
                     <div className="flex justify-center w-full my-4">
                         <label className="input input-bordered flex items-center gap-2 w-60 max-w-full">
@@ -51,6 +51,7 @@ export default function Hero({ setUsername }: HeroProps) {
                             />
                         </label>
                     </div>
+                    
                     <button className="btn btn-primary" onClick={handleClick}>Summarize</button>
                 </div>
             </div>

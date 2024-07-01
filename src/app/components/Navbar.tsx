@@ -1,14 +1,29 @@
-const Navbar = () => {
+'use client'
+
+import { useEffect } from "react"
+
+interface NavbarProps{
+    loggedIn: boolean
+}
+
+const Navbar = ({loggedIn}:NavbarProps) => {
+    useEffect(()=>{
+        console.log(loggedIn)
+    }, [loggedIn])
+
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
-                <a className="btn btn-ghost text-xl">stay connected</a>
+                <a className="btn btn-ghost text-xl" href="/">stay connected</a>
             </div>
             <div className="navbar-center hidden lg:flex">
             </div>
             <div className="navbar-end">
-                <a className="btn mr-2">register</a>
-                <a className="btn">login</a>
+                {loggedIn === true && 
+             <a className="btn" href="/settings">Settings</a> ||
+             <a className="btn" href="/auth">login</a>
+}
             </div>
         </div>
     )
