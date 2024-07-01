@@ -18,6 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+        <head>
+      <script defer src="https://api.pirsch.io/pa.js"
+    id="pianjs"
+    data-code="31jEKw3aG6dreCdq0ZobcTWelRXztm9c"></script>
+      </head>
       <body className={inter.className}>
         {children}
         <div className="max-w-md mx-auto sm:max-w-2xl md:max-w-2/3">
