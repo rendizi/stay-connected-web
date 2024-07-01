@@ -16,6 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+      <script defer src="https://api.pirsch.io/pa.js"
+    id="pianjs"
+    data-code="31jEKw3aG6dreCdq0ZobcTWelRXztm9c"></script>
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
