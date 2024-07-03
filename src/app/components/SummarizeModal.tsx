@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 const SummarizeModal = ({username}:{username: string}) => {
     const [response, setResponse] = useState("");
     const [loading, setLoading] = useState(false)
+    const [needSignIn, setNeedSignIn] = useState(false)
 
     useEffect(() => {
         if (username === ""){
@@ -17,11 +18,15 @@ const SummarizeModal = ({username}:{username: string}) => {
             console.log('WebSocket connected');
             ws.send(localStorage.getItem("token") || "")
             ws.send(username);
+            setResponse("")
             setLoading(true)
         };
 
         ws.onmessage = (event) => {
             console.log('Message from server:', event.data);
+            if (event.data === "You need to sign in first"){
+                setNeedSignIn(true)
+            }
             setResponse(event.data);
         };
 
@@ -48,6 +53,7 @@ const SummarizeModal = ({username}:{username: string}) => {
         <div className="flex flex-col items-center justify-center py-4">
             {response && <p className="py-4">{response}</p>}
             {loading && <span className="loading loading-spinner loading-lg"></span>}
+            {needSignIn && <a href="/auth" className='btn btn-secondary'>Sign in</a>}
         </div>
     </div>
     
