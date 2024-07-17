@@ -1,19 +1,15 @@
 'use client'
 
-import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
+interface NavbarProps{
+    loggedIn: boolean
+}
 
-
-const Navbar = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
-
+const Navbar = ({loggedIn}:NavbarProps) => {
     useEffect(()=>{
-        const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
-        if (token){
-            setLoggedIn(true)
-        }
-    }, [])
+        console.log(loggedIn)
+    }, [loggedIn])
 
 
     return (

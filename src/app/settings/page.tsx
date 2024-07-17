@@ -167,7 +167,7 @@ const Settings = () => {
 
     return (
         <div className="bg-base-200 min-h-screen">
-            <Navbar />
+            <Navbar loggedIn={loggedIn}/>
             <div className='w-full flex flex-col justify-center items-center mt-4'>
             <div className='flex gap-2'>
                 <div className='join'>

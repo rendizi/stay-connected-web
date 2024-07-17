@@ -8,9 +8,18 @@ import Navbar from "../components/Navbar";
 
 export default function Index() {
   const [username, setUsername] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+    if (token) {
+      setLoggedIn(true);
+    }
+  }, []);
+
   return (
     <div className="bg-base-200">
-      <Navbar />
+      <Navbar loggedIn={loggedIn} />
       <Hero setUsername={setUsername} />
       <SummarizeModal username={username} />
     </div>
