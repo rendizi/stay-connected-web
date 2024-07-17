@@ -33,6 +33,11 @@ const Auth = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <form className="card-body" onSubmit={handleClick}>
+                    <div className='flex flex-col items-center justify-center text-center'>
+                        <h2>{haveAnAccount ? "Sign in" :"Sign up"}</h2>
+                        <p className='text-center'>{haveAnAccount ? "Sign in with your email and password that you used while signing up" : "Sign up with email and password. They will be used for newsletters and to connect telegram"}</p>
+                    </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
