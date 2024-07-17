@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from 'react-toastify';
 import { FaHeart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 
 
 interface UsersResponse {
@@ -21,6 +22,7 @@ const Settings = () => {
     const ws = useRef<WebSocket | null>(null);
     const [addedList, setAddedList] = useState<string[] | null>(null)
     const [connected, setConnected] = useState(true)
+    const router = useRouter();
 
     const handleWebSocketOpen = () => {
         if (ws.current) {
@@ -159,7 +161,7 @@ const Settings = () => {
     }
 
     if (!loggedIn){
-        window.location.href = "/auth"
+        router.push("/auth")
     }
 
     return (
