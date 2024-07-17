@@ -21,6 +21,8 @@ export default function RootLayout({
       <script defer src="https://api.pirsch.io/pa.js"
     id="pianjs"
     data-code="31jEKw3aG6dreCdq0ZobcTWelRXztm9c"></script>
+            <link rel="icon" href="/icon(1).png" /> 
+
       </head>
       <body className={inter.className}>{children}
         <ToastContainer/>

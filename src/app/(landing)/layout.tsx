@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Head from "next/head"; 
+
 import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Stay Connected",
-  description: "Summarize instagram stories and get latest info in minutes, not hourse",
+  description: "Summarize Instagram stories and get latest info in minutes, not hours",
 };
 
 export default function RootLayout({
@@ -17,10 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <script defer src="https://api.pirsch.io/pa.js"
-    id="pianjs"
-    data-code="31jEKw3aG6dreCdq0ZobcTWelRXztm9c"></script>
-    <meta name="yandex-verification" content="37f80946b72db249" />
+        <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code="31jEKw3aG6dreCdq0ZobcTWelRXztm9c"></script>
+        <meta name="yandex-verification" content="37f80946b72db249" />
+        <link rel="icon" href="/icon(1).png" /> 
       </head>
       <body className={inter.className}>{children}</body>
     </html>
