@@ -51,13 +51,17 @@ const Settings = () => {
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter' && ws.current) {
-            const trimmedValue = inputValue.trim();
-            if (trimmedValue) {
-                setLoading(true)
-                ws.current.send(trimmedValue);
-            }
+            wsSend()
         }
     };
+
+    const wsSend = () => {
+        const trimmedValue = inputValue.trim();
+        if (trimmedValue && ws.current) {
+            setLoading(true)
+            ws.current.send(trimmedValue);
+        }
+    }
 
     const Follow = async(username: string) => {
         try {
@@ -178,7 +182,7 @@ const Settings = () => {
                             disabled={connected}
                         />
                     </label>
-                    <button className='btn btn-accent join-item'>Search</button>
+                    <button className='btn btn-accent join-item' onClick={()=>wsSend()}>Search</button>
                 </div>
             </div>
 
@@ -187,7 +191,7 @@ const Settings = () => {
                  {response.map((user, index) => (
                 <div key={index} className="user-card flex items-center justify-between mt-2">
                     <div className="flex items-center">
-                    <div className="avatar online placeholder mr-4">
+                    <div className="avatar placeholder mr-4">
                         <div className="bg-neutral text-neutral-content w-16 rounded-full">
                         <span className="text-xl">{user.username[0]}</span>
                         </div>
