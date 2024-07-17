@@ -20,6 +20,7 @@ const Auth = () => {
             const response = await axios.post(`${url}login`,{email, password})
             toast(response.data?.message)
             localStorage.setItem("token", response.data?.token)
+            localStorage.setItem("refresh", response.data?.refresh)
             window.location.href = "/"
         }catch (error){
             console.log(error)

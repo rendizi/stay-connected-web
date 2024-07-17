@@ -18,10 +18,9 @@ export default function Index() {
   },[])
 
   return (
-    <div className="h-screen bg-base-200">
+    <div className="bg-base-200">
       <Navbar loggedIn={loggedIn}/>
       <Hero setUsername={setUsername}/>
-      <SummarizeModal username={username}/>
     </div>
   );
 }
