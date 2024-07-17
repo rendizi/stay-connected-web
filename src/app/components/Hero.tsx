@@ -61,10 +61,33 @@ export default function Hero({ setUsername }: HeroProps) {
                     <p className="py-6 px-10 text-xl">
                         Get the latest info in minutes, not <span style={{ display: 'inline-block', transform: 'rotate(-3deg)' }} className="bg-accent px-1 py-1 text-black">hours</span>
                     </p>
-                    <a className="btn btn-primary" href="#d">Learn more</a>
                 </div>
             </div>
         </div>
+        <div className="hero bg-base-200 h-screen">
+            <div className="hero-content text-center">
+                <div className="max-w-md mx-auto">
+                    <h1 className="text-5xl font-bold">Try it out</h1>
+                    <p className="py-6 px-10 text-xl">
+                        Try it out for free without registration. Daily summarizes will be similar
+                    </p>
+                    <div className="flex justify-center w-full my-4">
+                        <label className="input input-bordered flex items-center gap-2 w-60 max-w-full">
+                            <input
+                                type="text"
+                                className="grow"
+                                placeholder="Username"
+                                value={user}
+                                onChange={(e) => setUser(e.target.value)}
+                            />
+                        </label>
+                    </div>
+                    
+                    <button className="btn btn-primary" onClick={handleClick}>Summarize</button>
+                </div>
+            </div>
+        </div>
+        
         <div className="hero bg-base-200 h-screen" id="d">
             <div className="hero-content flex-col">
             <div className=''>
@@ -96,11 +119,11 @@ export default function Hero({ setUsername }: HeroProps) {
                             
                         </div>
                         </div>                   
-                    <div className='bg-base-300 text-primary px-3 py-2  mt-4 text-center text-xl font-semibold'>
+                    <div className='bg-base-300 text-primary px-3 py-2  mt-4 text-center text-xl font-semibold rounded-xl'>
                         <h2>Recap videos</h2>
                         <p className='text-black dark:text-white text-lg'>Get mini recap video from the most interesting storieses</p>
                     </div>
-                    <div className='bg-base-300 text-primary px-3 py-2 mt-4 text-xl text-center font-semibold'>
+                    <div className='bg-base-300 text-primary px-3 py-2 mt-4 text-xl text-center font-semibold rounded-xl'>
                         <h2>Get them to your inbox or telegram</h2>
                         <p className='text-black dark:text-white text-lg'>Sign in into <a href="https://t.me/Stay_Connected_Bot" className='text-decoration' type='_blank'><u>telegram newsletter</u></a></p>
                         </div>

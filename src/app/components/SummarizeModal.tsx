@@ -16,7 +16,6 @@ const SummarizeModal = ({username}:{username: string}) => {
 
         ws.onopen = () => {
             console.log('WebSocket connected');
-            ws.send(localStorage.getItem("token") || "")
             ws.send(username);
             setResponse("")
             setLoading(true)

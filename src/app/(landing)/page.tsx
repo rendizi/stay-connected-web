@@ -21,6 +21,7 @@ export default function Index() {
     <div className="bg-base-200">
       <Navbar loggedIn={loggedIn}/>
       <Hero setUsername={setUsername}/>
+      <SummarizeModal username={username}/>
     </div>
   );
 }
