@@ -18,9 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
         <head>
-      <script defer src="https://api.pirsch.io/pa.js"
+        <script defer src="https://api.pirsch.io/pa.js"
     id="pianjs"
-    data-code="31jEKw3aG6dreCdq0ZobcTWelRXztm9c"></script>
+    data-code="vxsIywd9iuSqNgUFcyFgvdCNGuFGSJIE"></script>
             <link rel="icon" href="/icon(1).png" /> 
 
       </head>
