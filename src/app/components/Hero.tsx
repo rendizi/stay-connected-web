@@ -54,25 +54,16 @@ export default function Hero({ setUsername }: HeroProps) {
 
     return (
         <div>
-        <div className="hero bg-base-200 mt-36">
-            <div className="hero-content text-center">
-                <div className="max-w-md mx-auto">
-                    <h1 className="text-5xl font-bold">Summarize Instagram stories</h1>
-                    <p className="py-6 px-10 text-xl">
-                        Get the latest info in minutes, not <span style={{ display: 'inline-block', transform: 'rotate(-3deg)' }} className="bg-accent px-1 py-1 text-black">hours</span>
-                    </p>
-                </div>
-            </div>
-        </div>
         <div className="hero bg-base-200 h-screen">
             <div className="hero-content text-center">
                 <div className="max-w-md mx-auto">
-                    <h1 className="text-5xl font-bold">Try it out</h1>
-                    <p className="py-6 px-10 text-xl">
-                        Try it out for free without registration. Daily summarizes will be similar
-                    </p>
+                <h1 className="text-5xl font-bold">Summarize Instagram stories</h1>
+                <p className="py-6 px-10 text-xl">
+                Get the latest info in minutes, not <span style={{ display: 'inline-block', transform: 'rotate(-3deg)' }} className="bg-accent px-1 py-1 text-black">hours</span>
+                </p>
+                <div className='pl-10 pr-10'>
                     <div className="flex justify-center w-full my-4">
-                        <label className="input input-bordered flex items-center gap-2 w-60 max-w-full">
+                        <label className="input input-bordered flex items-center gap-2 w-full">
                             <input
                                 type="text"
                                 className="grow"
@@ -83,7 +74,8 @@ export default function Hero({ setUsername }: HeroProps) {
                         </label>
                     </div>
                     
-                    <button className="btn btn-primary" onClick={handleClick}>Summarize</button>
+                    <button className="btn btn-primary w-full" onClick={handleClick}>Summarize</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -136,9 +128,9 @@ export default function Hero({ setUsername }: HeroProps) {
             <FaRegPaperPlane className="max-w-sm rounded-lg text-6xl md:text-6xl lg:text-8xl xl:text-9xl" />
             <div className='p-10'>
                 <h1 className="text-5xl font-bold text-center">Time to sign up!</h1>
-                <p className="py-6 text-center">Sign up now to start receiving daily summaries of your favorite Instagram profiles straight to your inbox or Telegram!</p>
+                <p className="py-6 text-center text-sm">Sign up now to start receiving daily summaries of your favorite Instagram profiles straight to your inbox or Telegram!</p>
                 <div className='flex justify-center align-center'>
-                <a className="btn btn-primary" href="/auth" >Get Started</a>
+                <a className="btn btn-primary w-full" href="/auth" >Sign up</a>
                 </div>
                 </div>
             </div>

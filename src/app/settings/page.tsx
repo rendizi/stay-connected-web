@@ -22,6 +22,7 @@ const Settings = () => {
     const ws = useRef<WebSocket | null>(null);
     const [addedList, setAddedList] = useState<string[] | null>(null)
     const [connected, setConnected] = useState(true)
+    const [url, setUrl] = useState("")
     const router = useRouter();
 
     const handleWebSocketOpen = () => {
@@ -164,30 +165,31 @@ const Settings = () => {
         <div className="bg-base-200 min-h-screen">
             <Navbar loggedIn={loggedIn} />
             <div className='w-full flex flex-col justify-center items-center mt-4'>
-                <div className='w-2/3'>
-                    <label className="input input-bordered flex items-center gap-2">
-                    <input
-                        type="text"
-                        className="grow"
-                        placeholder="username"
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                        disabled={connected}
-                    />
+            <div className='w-2/3 flex gap-2'>
+    <label className="input input-bordered flex items-center gap-2 grow">
+        <input
+            type="text"
+            className="grow"
+            placeholder="username"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyPress={handleKeyPress}
+            disabled={connected}
+        />
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="h-4 w-4 opacity-70">
+            <path
+                fillRule="evenodd"
+                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                clipRule="evenodd" />
+        </svg>
+    </label>
+    <button className='btn btn-accent'>Search</button>
+</div>
 
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            fill="currentColor"
-                            className="h-4 w-4 opacity-70">
-                            <path
-                                fillRule="evenodd"
-                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                                clipRule="evenodd" />
-                        </svg>
-                    </label>
-                </div>
                 {response ?
                  <div className='mt-4'>
                  {response.map((user, index) => (
@@ -212,7 +214,7 @@ const Settings = () => {
 
 
                </div>
-                : loading ? <span className="loading loading-ball loading-lg mt-48"></span> : <h2 className="mt-4 text-center mt-48 p-20">Search for your friends and add them to your list</h2>}
+                : loading ? <span className="loading loading-ball loading-lg mt-48"></span> : <h2 className="mt-4 text-center mt-40 p-20">Search for your friends and add them to your list of people whose storieses summarizes you want to receive daily</h2>}
                 <footer className="footer bg-neutral text-neutral-content p-10 flex items-center fixed bottom-0 w-full">
                 {addedList && 
 

@@ -22,7 +22,7 @@ const Navbar = ({loggedIn}:NavbarProps) => {
             <div className="navbar-end">
                 {loggedIn === true && 
              <a className="btn" href="/settings">Settings</a> ||
-             <a className="btn btn-secondary" href="/auth">login</a>
+             <a className="btn btn-secondary" href="/auth">Sign Up</a>
 }
             </div>
         </div>
