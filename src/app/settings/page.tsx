@@ -214,8 +214,14 @@ const Settings = () => {
 
 
                </div>
-                : loading ? <span className="loading loading-ball loading-lg mt-48"></span> : <h2 className="mt-4 text-center mt-40 p-20">Search for your friends and add them to your list of people whose storieses summarizes you want to receive daily</h2>}
-                <footer className="footer bg-neutral text-neutral-content p-10 flex items-center fixed bottom-0 w-full">
+: loading ? (
+    <span className="loading loading-ball loading-lg mt-48"></span>
+  ) : (
+    <h2 className="mt-4 text-center mt-40 p-20">
+      Search for your friends and add them to your list to receive daily summaries of their stories.
+    </h2>
+  )}
+                  <footer className="footer bg-neutral text-neutral-content p-10 flex items-center fixed bottom-0 w-full">
                 {addedList && 
 
                     <div className="avatar-group -space-x-6 rtl:space-x-reverse flex">
