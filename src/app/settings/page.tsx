@@ -163,7 +163,7 @@ const Settings = () => {
 
     return (
         <div className="bg-base-200 min-h-screen">
-            <Navbar loggedIn={loggedIn} />
+            <Navbar />
             <div className='w-full flex flex-col justify-center items-center mt-4'>
             <div className='w-2/3 flex gap-2'>
     <label className="input input-bordered flex items-center gap-2 grow">

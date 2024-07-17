@@ -12,12 +12,14 @@ interface HeroProps {
 
 export default function Hero({ setUsername }: HeroProps) {
     const [user, setUser] = useState("");
+    const [token, setToken] = useState("")
 
     useEffect(() => {
         const modal = document.getElementById("modal_summarize") as HTMLDialogElement | null;
         if (modal?.open) {
             modal?.close()
         }
+        setToken(localStorage.getItem("token") || "")
         const some = async () => {
             try {
                 const url = "https://stay-connected-production.up.railway.app/api/v1"
@@ -117,7 +119,7 @@ export default function Hero({ setUsername }: HeroProps) {
                     </div>
                     <div className='bg-base-300 text-primary px-3 py-2 mt-4 text-xl text-center font-semibold rounded-xl'>
                         <h2>Get them to your inbox or telegram</h2>
-                        <p className='text-black dark:text-white text-lg'>Sign in into <a href={`https://t.me/Stay_Connected_Bot?start=${localStorage.getItem("token") || ""}`} className='text-decoration' type='_blank'><u>telegram newsletter</u></a></p>
+                        <p className='text-black dark:text-white text-lg'>Sign in into <a href={`https://t.me/Stay_Connected_Bot?start=${token}`} className='text-decoration' type='_blank'><u>telegram newsletter</u></a></p>
                         </div>
                 </div>
                 </div>

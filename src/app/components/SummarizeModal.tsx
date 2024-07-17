@@ -55,7 +55,7 @@ const SummarizeModal = ({username}:{username: string}) => {
             {response && <p className="py-4">{response}</p>}
             {loading && <span className="loading loading-spinner loading-lg"></span>}
             {needSignIn && <a href="/auth" className='btn btn-secondary'>Sign in</a>}
-            {loadingSuccess && <button className='btn btn-primary '>Try more</button>}
+            {loadingSuccess && <a className='btn btn-primary' href='/auth'>Try more</a>}
         </div>
     </div>
     
