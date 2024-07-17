@@ -60,7 +60,7 @@ export default function Hero({ setUsername }: HeroProps) {
             <div className="hero-content text-center">
                 <div className="max-w-md mx-auto">
                 <h1 className="text-5xl font-bold">Summarize Instagram stories</h1>
-                <p className="py-6 px-10 text-xl">
+                <p className="py-6 px-10 text-md">
                 Get the latest info in minutes, not <span style={{ display: 'inline-block', transform: 'rotate(-3deg)' }} className="bg-accent px-1 py-1 text-black">hours</span>
                 </p>
                 <div className='pl-10 pr-10'>
@@ -115,11 +115,11 @@ export default function Hero({ setUsername }: HeroProps) {
                         </div>                   
                     <div className='bg-base-300 text-primary px-3 py-2  mt-4 text-center text-xl font-semibold rounded-xl'>
                         <h2>Recap videos</h2>
-                        <p className='text-black dark:text-white text-lg'>Get mini recap video from the most interesting storieses</p>
+                        <p className='text-black dark:text-white text-sm'>Get mini recap video from the most interesting storieses</p>
                     </div>
                     <div className='bg-base-300 text-primary px-3 py-2 mt-4 text-xl text-center font-semibold rounded-xl'>
                         <h2>Get them to your inbox or telegram</h2>
-                        <p className='text-black dark:text-white text-lg'>Sign in into <a href={`https://t.me/Stay_Connected_Bot?start=${token}`} className='text-decoration' type='_blank'><u>telegram newsletter</u></a></p>
+                        <p className='text-black dark:text-white text-sm'>Sign in into <a href={`https://t.me/Stay_Connected_Bot?start=${token}`} className='text-decoration' type='_blank'><u>telegram newsletter</u></a></p>
                         </div>
                 </div>
                 </div>
@@ -130,7 +130,7 @@ export default function Hero({ setUsername }: HeroProps) {
             <FaRegPaperPlane className="max-w-sm rounded-lg text-6xl md:text-6xl lg:text-8xl xl:text-9xl" />
             <div className='p-10'>
                 <h1 className="text-5xl font-bold text-center">Time to sign up!</h1>
-                <p className="py-6 text-center text-sm">Sign up now to start receiving daily summaries of your favorite Instagram profiles straight to your inbox or Telegram!</p>
+                <p className="py-6 text-center text-md">Sign up now to start receiving daily summaries of your favorite Instagram profiles straight to your inbox or Telegram!</p>
                 <div className='flex justify-center align-center'>
                 <a className="btn btn-primary w-full" href="/auth" >Sign up</a>
                 </div>
