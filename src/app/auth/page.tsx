@@ -21,7 +21,7 @@ const Auth = () => {
             toast(response.data?.message)
             localStorage.setItem("token", response.data?.token)
             localStorage.setItem("refresh", response.data?.refresh)
-            window.location.href = "/"
+            window.location.href = "/settings"
         }catch (error){
             console.log(error)
             toast("An error occured during the proccess")

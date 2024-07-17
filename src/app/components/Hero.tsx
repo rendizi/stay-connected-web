@@ -70,7 +70,7 @@ export default function Hero({ setUsername }: HeroProps) {
             <div className=''>
                 <h1 className="text-5xl font-bold text-center" id="f">Features</h1>
                 <div className=''>
-                    <div className=' bg-base-300 text-primary px-3 py-2 mt-4 text-center text-xl font-semibold'>
+                    <div className=' bg-base-300 text-primary px-3 py-2 mt-4 text-center text-xl font-semibold rounded-xl'>
                         <h2>Daily stories summarizer</h2>
                         <div className='flex justify-center align-center space-x-2 mt-2 mb-2'>
                         <div className="bg-gray-200 w-40 h-32 rounded-xl pr-2 pl-2 shadow-xl">
@@ -115,7 +115,7 @@ export default function Hero({ setUsername }: HeroProps) {
                 <h1 className="text-5xl font-bold text-center">Time to sign up!</h1>
                 <p className="py-6 text-center">Sign up now to start receiving daily summaries of your favorite Instagram profiles straight to your inbox or Telegram!</p>
                 <div className='flex justify-center align-center'>
-                <a className="btn btn-primary" href="/settings" >Get Started</a>
+                <a className="btn btn-primary" href="/auth" >Get Started</a>
                 </div>
                 </div>
             </div>

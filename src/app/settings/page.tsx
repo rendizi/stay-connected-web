@@ -160,10 +160,6 @@ const Settings = () => {
         return false 
     }
 
-    if (!loggedIn){
-        router.push("/auth")
-    }
-
     return (
         <div className="bg-base-200 min-h-screen">
             <Navbar loggedIn={loggedIn} />
