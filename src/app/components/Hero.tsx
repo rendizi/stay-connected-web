@@ -89,7 +89,7 @@ export default function Hero({ setUsername }: HeroProps) {
                             </div>
                             <p className="ml-2 text-black text-sm mt-1">@sevenstragen</p>
                             </div>
-                            <p className="text-black text-xs pr-1 pl-1 mt-2">Alan is working on new SaaS that is related with fasion</p>
+                            <p className="text-black text-xs pr-1 pl-1 mt-2">Alan is working on new SaaS that is related to fasion</p>
                         </div> 
                             
                             
