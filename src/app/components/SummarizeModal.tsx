@@ -16,6 +16,7 @@ const SummarizeModal = ({username}:{username: string}) => {
         const ws = new WebSocket('wss://stay-connected-production.up.railway.app/');
 
         ws.onopen = () => {
+            setLoadingSuccess(false)
             console.log('WebSocket connected');
             ws.send(username);
             setResponse("")
