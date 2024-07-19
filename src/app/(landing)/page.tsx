@@ -17,6 +17,18 @@ export default function Index() {
     }
   }, []);
 
+  useEffect(() => {
+    let modifiedUsername = username;
+  
+    if (modifiedUsername[0] === "@") {
+      modifiedUsername = modifiedUsername.slice(1);
+    }
+    
+    modifiedUsername = modifiedUsername.trim();
+    
+    setUsername(modifiedUsername);
+  }, [username]);
+
   return (
     <div className="bg-base-200">
       <Navbar loggedIn={loggedIn} />
