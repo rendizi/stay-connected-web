@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
-import Navbar from "../components/Navbar";
+import Navbar from "../components/landing/Navbar";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import { FaHeart } from "react-icons/fa";
@@ -186,7 +186,9 @@ const Settings = () => {
                 </div>
             </div>
 
-                {response ?
+                {loading ? (
+    <span className="loading loading-ball loading-lg mt-48"></span>
+  ) : response ?
                  <div className='mt-4'>
                  {response.map((user, index) => (
                 <div key={index} className="user-card flex items-center justify-between mt-2">
@@ -210,11 +212,9 @@ const Settings = () => {
 
 
                </div>
-: loading ? (
-    <span className="loading loading-ball loading-lg mt-48"></span>
-  ) : (
+:  (
     <h2 className="mt-4 text-center mt-40 p-20">
-      Search for your friends and add them to your list to receive daily summaries of their stories.
+      Search for your friends and add them to your list to receive daily summaries of their stories. Don't forget to <a href="https://t.me/Stay_Connected_Bot" className='underline' target="_blank">connect your telegram</a> for daily summarizes
     </h2>
   )}
                   <footer className="footer bg-neutral text-neutral-content p-10 flex items-center fixed bottom-0 w-full">
