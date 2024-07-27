@@ -29,7 +29,7 @@ const Auth = () => {
             toast(response.data?.message);
             localStorage.setItem("token", response.data?.token);
             localStorage.setItem("refresh", response.data?.refresh);
-            window.location.href = "/settings";
+            window.location.href = "/mylist";
         } catch (error) {
             console.log(error);
             toast("An error occurred during the process");
@@ -42,7 +42,7 @@ const Auth = () => {
             toast(loginResponse.data?.message);
             localStorage.setItem("token", loginResponse.data?.token);
             localStorage.setItem("refresh", loginResponse.data?.refresh);
-            window.location.href = "/settings";
+            window.location.href = "/mylist";
         } catch (error: any) {
             if (error.response.status === 400) {
                 try {
@@ -51,7 +51,7 @@ const Auth = () => {
                     toast(loginResponse.data?.message);
                     localStorage.setItem("token", loginResponse.data?.token);
                     localStorage.setItem("refresh", loginResponse.data?.refresh);
-                    window.location.href = "/settings";
+                    window.location.href = "/mylist";
                 } catch (registerError) {
                     console.log(registerError);
                     toast("An error occurred during the registration process");

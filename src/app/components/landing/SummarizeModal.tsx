@@ -50,7 +50,7 @@ const SummarizeModal = ({username}:{username: string}) => {
     return (
         <dialog id="modal_summarize" className="modal" open>
     <div className="modal-box">
-        <h3 className="font-bold text-lg text-center">Summarizer</h3>
+        <h3 className="font-bold text-lg text-center">{loadingSuccess && "Summarize is ready" || "Summarizer"}</h3>
         
         <div className="flex flex-col items-center justify-center py-4">
             {response && <p className="py-4">{response}</p>}

@@ -16,7 +16,7 @@ interface UsersResponse {
 
 const Settings = () => {
     const [loggedIn, setLoggedIn] = useState(false);
-    const [response, setResponse] = useState<[UsersResponse] | null>(null);
+    const [response, setResponse] = useState<UsersResponse[] | null>(null);
     const [loading, setLoading] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const ws = useRef<WebSocket | null>(null);
@@ -35,7 +35,7 @@ const Settings = () => {
     const handleWebSocketMessage = (event: MessageEvent) => {
         const payload = JSON.parse(event.data)
         console.log(payload)
-        const data: [UsersResponse] = payload.data;
+        const data: UsersResponse[] = payload.data;
         setResponse(data);
         setLoading(false);
     };
@@ -112,11 +112,11 @@ const Settings = () => {
         }
     }
     
-    
-    
-
     useEffect(() => {
         if (typeof window !== 'undefined') {
+            if (localStorage.getItem("token") === null){
+                window.location.href = "/"
+            }
             getAddedList()
             setLoggedIn(localStorage.getItem("token") !== null);
             
@@ -165,6 +165,14 @@ const Settings = () => {
         return false 
     }
 
+    const convertAddedListToUsersResponse = (): UsersResponse[] => {
+        if (!addedList) return [];
+        return addedList.map(username => ({
+            username,
+            profile_pic_url: "photo.png"
+        }));
+    };
+
     return (
         <div className="bg-base-200 min-h-screen">
             <Navbar loggedIn={loggedIn}/>
@@ -201,49 +209,77 @@ const Settings = () => {
                     <div>{user.username}</div>
                     </div>
                     {user.username && alreadyAdded(user.username) ? 
+                                            <div className="tooltip" data-tip="Add to following list">
+
                     <button className="btn" onClick={()=>Unfollow(user.username)} >
-                        <FaHeart />
-                    </button> : 
+                        <FaHeart className='text-red-500' />
+                    </button>
+                    </div>
+ : 
+                                        <div className="tooltip" data-tip="Remove from following list">
+
                     <button className="btn" onClick={()=>Follow(user.username)}>
-                        <FaRegHeart />
-                    </button>}
+                            <FaRegHeart/>
+                    </button>
+                    </div>
+                }
                 </div>
                 ))}
 
 
                </div>
 :  (
-    <h2 className="mt-4 text-center mt-40 p-20">
-      Search for your friends and add them to your list to receive daily summaries of their stories. Don't forget to <a href="https://t.me/Stay_Connected_Bot" className='underline' target="_blank">connect your telegram</a> for daily summarizes
-    </h2>
+    <div>    
+        <h2 className="mt-4 text-center mt-40 pr-20 pl-20 pb-10">
+        Search for your friends and add them to your list to receive daily summaries of their stories. 
+        </h2>
+        <p className='text-center pr-20 pl-20'>
+        Don't forget to <a href="https://t.me/Stay_Connected_Bot" className='underline text-blue-300' target="_blank">connect your telegram</a> for daily summarizes
+        </p>
+    </div>
   )}
                   <footer className="footer bg-neutral text-neutral-content p-10 flex items-center fixed bottom-0 w-full">
                 {addedList && 
-
+                    
                     <div className="avatar-group -space-x-6 rtl:space-x-reverse flex">
+                        {addedList[0] && 
                     <div className="avatar online placeholder">
                         <div className="bg-neutral text-neutral-content w-16 rounded-full">
-                            <span className="text-xl">{addedList[0] && addedList[0][0]}</span>
+                            <span className="text-xl">{addedList[0][0]}</span>
                         </div>
                     </div>
+}
+                    {addedList[1] && 
                     <div className="avatar online placeholder">
                     <div className="bg-neutral text-neutral-content w-16 rounded-full">
-                        <span className="text-xl">{addedList[1] && addedList[1][0]}</span>
+                        <span className="text-xl">{addedList[1][0]}</span>
                     </div>
                     </div>
+}
+{addedList[2] && 
                     <div className="avatar online placeholder">
                     <div className="bg-neutral text-neutral-content w-16 rounded-full">
-                        <span className="text-xl">{addedList[2] && addedList[2][0]}</span>
+                        <span className="text-xl">{addedList[2][0]}</span>
                     </div>
                     </div>
+}
+{addedList.length >= 3 && 
                         <div className="avatar placeholder">
                             <div className="bg-neutral text-neutral-content w-12">
                                 <span>+{addedList.length >= 3 && addedList.length - 3 || 0}</span>
                             </div>
                         </div>
+}
                     </div>
 }
-                    <span className="ml-4">and {addedList && addedList.length >= 3 ? addedList.length - 3 : 0} more friends following</span>
+                    <span className="ml-4">and {addedList && addedList.length >= 3 ? addedList.length - 3 : 0} more 
+                    <span onClick={(e)=>{
+                        e.preventDefault();
+                        setResponse(convertAddedListToUsersResponse())
+                    }} className="underline ml-1 text-blue-300">
+                    friends following
+                    </span>
+                    </span>
                 
                 </footer>
             </div>
