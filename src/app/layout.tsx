@@ -4,6 +4,8 @@ import Head from "next/head";
 
 import "./globals.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +33,7 @@ export default function RootLayout({
 >
           {children}
         </GoogleOAuthProvider>
+        <ToastContainer />
         </body>
     </html>
   );

@@ -15,12 +15,14 @@ const Auth = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [haveAnAccount, setHaveAnAccount] = useState(false);
+    const [loading, setLoading] = useState(false)
 
     const url = "https://stay-connected-production.up.railway.app/api/v1/";
 
     const handleClick = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
+            setLoading(true)
             if (!haveAnAccount) {
                 const response = await axios.post(`${url}register`, { email, password });
                 toast(response.data);
@@ -30,9 +32,11 @@ const Auth = () => {
             localStorage.setItem("token", response.data?.token);
             localStorage.setItem("refresh", response.data?.refresh);
             window.location.href = "/mylist";
+            setLoading(false)
         } catch (error) {
             console.log(error);
             toast("An error occurred during the process");
+            setLoading(false)
         }
     };
 
@@ -60,6 +64,21 @@ const Auth = () => {
                 console.log(error);
                 toast("An error occurred during the Google login process");
             }
+        }
+    };
+
+    const handleForgotPassword = async () => {
+        try {
+            setLoading(true)
+            const response = await axios.post(
+                'https://stay-connected-production.up.railway.app/api/v1/reset',
+                {email}
+            );
+            toast(response.data.message);
+            setLoading(false)
+        } catch (error: any) {
+            toast.error('Error resetting password', error);
+            setLoading(false)
         }
     };
 
@@ -119,9 +138,14 @@ const Auth = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <label className="label">
+            {haveAnAccount && <a onClick={()=>{handleForgotPassword()  }} className="label-text-alt link link-hover">Forgot password?</a>}
+          </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">{haveAnAccount ? "Login" : "Register"}</button>
+                            <button className="btn btn-primary">
+                                {loading ?   <span className="loading loading-spinner"></span> : haveAnAccount ? "Login" : "Register"}
+                                </button>
                         </div>
                         <div className="form-control mt-4 text-center">
                             <p className="label-text-alt">
