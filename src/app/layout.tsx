@@ -6,6 +6,7 @@ import "./globals.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Suspense } from 'react'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +32,9 @@ export default function RootLayout({
         <GoogleOAuthProvider 
           clientId="612984225496-qfebmu4kv30no0c1absoje1g286mn805.apps.googleusercontent.com"
 >
+<Suspense>
           {children}
+          </Suspense>
         </GoogleOAuthProvider>
         <ToastContainer />
         </body>
