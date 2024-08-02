@@ -10,7 +10,6 @@ const SummarizeModal = ({username}:{username: string}) => {
 
     useEffect(() => {
         if (username === ""){
-            setResponse("username is invalid")
             return 
         }
         const ws = new WebSocket('wss://stay-connected-production.up.railway.app/');

@@ -23,10 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <script defer src="https://api.pirsch.io/pa.js"
+        <script defer src="https://api.pirsch.io/pa.js"
     id="pianjs"
     data-code="vxsIywd9iuSqNgUFcyFgvdCNGuFGSJIE"></script>        <meta name="yandex-verification" content="37f80946b72db249" />
-        <link rel="icon" href="/icon(1).png" /> 
+        <link rel="icon" href="icon(1).png" /> 
       </head>
       <body className={inter.className}>
         <GoogleOAuthProvider 
