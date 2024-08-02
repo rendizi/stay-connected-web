@@ -209,14 +209,14 @@ const Settings = () => {
                     <div>{user.username}</div>
                     </div>
                     {user.username && alreadyAdded(user.username) ? 
-                                            <div className="tooltip" data-tip="Add to following list">
+                                            <div className="tooltip" data-tip="Remove from following list">
 
                     <button className="btn" onClick={()=>Unfollow(user.username)} >
                         <FaHeart className='text-red-500' />
                     </button>
                     </div>
  : 
-                                        <div className="tooltip" data-tip="Remove from following list">
+                        <div className="tooltip" data-tip="Add to following list">
 
                     <button className="btn" onClick={()=>Follow(user.username)}>
                             <FaRegHeart/>
